@@ -51,15 +51,16 @@ function GroupClient(jiraClient) {
      */
     this.getGroup = function (opts, callback) {
         var qs = {
-            groupname: opts.groupName
+            groupname: opts.groupName,
+            expand: opts.expand
         };
 
-        if (opts.expand) {
+        /*if (opts.expand) {
             qs.expand = '';
             opts.expand.forEach(function (ex) {
                 qs.expand += ex + ','
             });
-        }
+        }*/
 
         var options = {
             uri: this.jiraClient.buildURL('/group'),
